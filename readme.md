@@ -33,6 +33,7 @@ bluetooth.set(1, function (err) {
 ```
 $ npm install --global bluetooth
 ```
+
 ```
 $ bluetooth --help
 

@@ -16,16 +16,17 @@ if (!cli.input.length) {
 	bluetooth.get(function (err, state) {
 		if (err) {
 			console.error(err.message);
-			process.exit(1);
+			process.exit(3);
 		}
 
-		console.log('Bluetooth is ' + (state === 1 ? 'on' : 'off'));
+		console.log('Bluetooth is ' + (state ? 'on' : 'off'));
+		process.exit(state ? 0 : 1);
 	});
 
 	return;
 }
 
-if (cli.input[0] !==  'on' && cli.input[0] !== 'off') {
+if (cli.input[0] !== 'on' && cli.input[0] !== 'off') {
 	console.log(cli.help);
 	return;
 }
@@ -33,8 +34,8 @@ if (cli.input[0] !==  'on' && cli.input[0] !== 'off') {
 bluetooth.set(cli.input[0] === 'on' ? 1 : 0, function (err) {
 	if (err) {
 		console.error(err.message);
-		process.exit(1);
+		process.exit(3);
 	}
 
-	console.log('Bluetooth state set to %s', cli.input[0])
+	console.log('Bluetooth state set to %s', cli.input[0]);
 });
