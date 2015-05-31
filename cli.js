@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+var logSymbols = require('log-symbols');
 var meow = require('meow');
 var bluetooth = require('./');
 
@@ -19,7 +20,7 @@ if (!cli.input.length) {
 			process.exit(3);
 		}
 
-		console.log('Bluetooth is ' + (state ? 'on' : 'off'));
+		console.log(state ? logSymbols.success + ' On' : logSymbols.error + ' Off');
 		process.exit(state ? 0 : 1);
 	});
 
@@ -27,15 +28,18 @@ if (!cli.input.length) {
 }
 
 if (cli.input[0] !== 'on' && cli.input[0] !== 'off') {
-	console.log(cli.help);
-	return;
+	console.log('Set bluetooth state to either `on` or `off`');
+	process.exit(3);
 }
 
-bluetooth.toggle(cli.input[0] === 'on' ? true : false, function (err) {
+var state = cli.input[0] === 'on' ? true : false;
+
+bluetooth.toggle(state, function (err) {
 	if (err) {
 		console.error(err.message);
 		process.exit(3);
 	}
 
-	console.log('Bluetooth state set to %s', cli.input[0]);
+	console.log(state ? logSymbols.success + ' On' : logSymbols.error + ' Off');
+	process.exit(state ? 0 : 1);
 });

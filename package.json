@@ -28,6 +28,7 @@
     "osx"
   ],
   "dependencies": {
+    "log-symbols": "^1.0.2",
     "meow": "^3.0.0",
     "osx-bluetooth": "^2.0.0"
   },
