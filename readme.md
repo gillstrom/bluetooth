@@ -17,15 +17,48 @@ $ npm install --save bluetooth
 ```js
 var bluetooth = require('bluetooth');
 
-bluetooth.get(function (err, state) {
+bluetooth.isOn(function (err, state) {
 	console.log(state);
-	//=> 0
+	//=> false
 });
 
-bluetooth.set(1, function (err) {
+bluetooth.on(function (err) {
+	console.log('Bluetooth state changed to on');
+});
+
+bluetooth.off(function (err) {
+	console.log('Bluetooth state changed to off');
+});
+
+bluetooth.toggle(function (err) {
 	console.log('Bluetooth state changed to on');
 });
 ```
+
+
+## API
+
+### .isOn(callback)
+
+Check if bluetooth is on or off.
+
+### .on(callback)
+
+Turn bluetooth on.
+
+### .off(callback)
+
+Turn bluetooth off.
+
+### .toggle([force], callback)
+
+Toggle the bluetooth state.
+
+#### force
+
+Type: `boolean`
+
+Force a state when toggling.
 
 
 ## CLI

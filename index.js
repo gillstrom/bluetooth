@@ -1,7 +1,7 @@
 'use strict';
+var osxBluetooth = require('osx-bluetooth');
 
-if (process.platform === 'darwin') {
-	module.exports = require('osx-bluetooth');
-} else {
-	throw new Error('Only OS X systems are supported');
-}
+exports.on = osxBluetooth.on;
+exports.off = osxBluetooth.off;
+exports.toggle = osxBluetooth.toggle;
+exports.isOn = osxBluetooth.isOn;

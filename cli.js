@@ -13,7 +13,7 @@ var cli = meow({
 });
 
 if (!cli.input.length) {
-	bluetooth.get(function (err, state) {
+	bluetooth.isOn(function (err, state) {
 		if (err) {
 			console.error(err.message);
 			process.exit(3);
@@ -31,7 +31,7 @@ if (cli.input[0] !== 'on' && cli.input[0] !== 'off') {
 	return;
 }
 
-bluetooth.set(cli.input[0] === 'on' ? 1 : 0, function (err) {
+bluetooth.toggle(cli.input[0] === 'on' ? true : false, function (err) {
 	if (err) {
 		console.error(err.message);
 		process.exit(3);
