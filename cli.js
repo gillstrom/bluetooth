@@ -10,7 +10,7 @@ var cli = meow({
 		'  $ bluetooth',
 		'  $ bluetooth on',
 		'  $ bluetooth off'
-	].join('\n')
+	]
 });
 
 if (!cli.input.length) {
