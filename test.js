@@ -3,24 +3,24 @@ var test = require('ava');
 var bluetooth = require('./');
 
 if (!process.env.CI) {
-	test('get state', function (t) {
+	test('isOn', function (t) {
 		t.plan(2);
 
-		bluetooth.get(function (err, state) {
+		bluetooth.isOn(function (err, res) {
 			t.assert(!err, err);
-			t.assert(typeof state === 'number');
+			t.assert(typeof res === 'boolean');
 		});
 	});
 
 	test('set state to 0', function (t) {
 		t.plan(3);
 
-		bluetooth.set(0, function (err) {
+		bluetooth.off(function (err) {
 			t.assert(!err, err);
 
-			bluetooth.get(function (err, state) {
+			bluetooth.isOn(function (err, res) {
 				t.assert(!err, err);
-				t.assert(state === 0);
+				t.assert(res === false);
 			});
 		});
 	});
