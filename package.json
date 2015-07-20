@@ -1,6 +1,6 @@
 {
   "name": "bluetooth",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Get or set Bluetooth state.",
   "license": "MIT",
   "repository": "gillstrom/bluetooth",
