@@ -1,7 +1,7 @@
 {
   "name": "bluetooth",
   "version": "2.0.1",
-  "description": "Get or set Bluetooth state",
+  "description": "Get or set Bluetooth state.",
   "license": "MIT",
   "repository": "gillstrom/bluetooth",
   "author": {
@@ -25,7 +25,9 @@
     "bt",
     "cli-app",
     "cli",
-    "osx"
+    "mac",
+    "osx",
+    "os x"
   ],
   "dependencies": {
     "log-symbols": "^1.0.2",

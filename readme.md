@@ -1,8 +1,8 @@
 # bluetooth [![Build Status](https://travis-ci.org/gillstrom/bluetooth.svg?branch=master)](https://travis-ci.org/gillstrom/bluetooth)
 
-> Get or set Bluetooth state
+> Get or set Bluetooth state.
 
-*Currently OS X only*
+*Currently OS X systems only*
 
 
 ## Install
@@ -36,6 +36,22 @@ bluetooth.toggle(function (err) {
 ```
 
 
+## CLI
+
+```
+$ npm install --global bluetooth
+```
+
+```
+$ bluetooth --help
+
+  Example
+    $ bluetooth
+    $ bluetooth on
+    $ bluetooth off
+```
+
+
 ## API
 
 ### .isOn(callback)
@@ -59,22 +75,6 @@ Toggle the bluetooth state.
 Type: `boolean`
 
 Force a state when toggling.
-
-
-## CLI
-
-```
-$ npm install --global bluetooth
-```
-
-```
-$ bluetooth --help
-
-  Example
-    $ bluetooth
-    $ bluetooth on
-    $ bluetooth off
-```
 
 
 ## License
