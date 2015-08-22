@@ -14,7 +14,12 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "xo && node test.js"
+  },
+  "xo": {
+    "envs": [
+      "mocha"
+    ]
   },
   "files": [
     "index.js",
@@ -35,6 +40,7 @@
     "osx-bluetooth": "^2.0.0"
   },
   "devDependencies": {
-    "ava": "^0.0.4"
+    "ava": "^0.0.4",
+    "xo": "^0.6.1"
   }
 }

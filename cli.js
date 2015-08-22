@@ -32,7 +32,7 @@ if (cli.input[0] !== 'on' && cli.input[0] !== 'off') {
 	process.exit(3);
 }
 
-var state = cli.input[0] === 'on' ? true : false;
+var state = cli.input[0] === 'on';
 
 bluetooth.toggle(state, function (err) {
 	if (err) {
