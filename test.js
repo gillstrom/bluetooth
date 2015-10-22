@@ -4,22 +4,18 @@ var bluetooth = require('./');
 
 if (!process.env.CI) {
 	test('isOn', function (t) {
-		t.plan(2);
+		t.plan(1);
 
-		bluetooth.isOn(function (err, res) {
-			t.assert(!err, err);
+		bluetooth.isOn().then(function (res) {
 			t.assert(typeof res === 'boolean');
 		});
 	});
 
 	test('set state to 0', function (t) {
-		t.plan(3);
+		t.plan(1);
 
-		bluetooth.off(function (err) {
-			t.assert(!err, err);
-
-			bluetooth.isOn(function (err, res) {
-				t.assert(!err, err);
+		bluetooth.off().then(function () {
+			bluetooth.isOn().then(function (res) {
 				t.assert(res === false);
 			});
 		});
