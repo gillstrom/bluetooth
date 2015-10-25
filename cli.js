@@ -4,14 +4,12 @@ var logSymbols = require('log-symbols');
 var meow = require('meow');
 var bluetooth = require('./');
 
-var cli = meow({
-	help: [
-		'Example',
-		'  $ bluetooth',
-		'  $ bluetooth on',
-		'  $ bluetooth off'
-	]
-});
+var cli = meow([
+	'Example',
+	'  $ bluetooth',
+	'  $ bluetooth on',
+	'  $ bluetooth off'
+]);
 
 if (!cli.input.length) {
 	bluetooth.isOn().then(function (state) {
