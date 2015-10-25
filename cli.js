@@ -11,12 +11,7 @@ var cli = meow([
 	'  $ bluetooth off'
 ]);
 
-if (!cli.input.length) {
-	bluetooth.isOn().then(function (state) {
-		console.log(state ? logSymbols.success + ' On' : logSymbols.error + ' Off');
-		process.exit(state ? 0 : 1);
-	});
-} else {
+if (cli.input.length) {
 	if (cli.input[0] !== 'on' && cli.input[0] !== 'off') {
 		console.log('Set bluetooth state to either `on` or `off`');
 		process.exit(3);
@@ -25,6 +20,11 @@ if (!cli.input.length) {
 	var state = cli.input[0] === 'on';
 
 	bluetooth.toggle(state).then(function () {
+		console.log(state ? logSymbols.success + ' On' : logSymbols.error + ' Off');
+		process.exit(state ? 0 : 1);
+	});
+} else {
+	bluetooth.isOn().then(function (state) {
 		console.log(state ? logSymbols.success + ' On' : logSymbols.error + ' Off');
 		process.exit(state ? 0 : 1);
 	});
